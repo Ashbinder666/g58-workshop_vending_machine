@@ -6,7 +6,7 @@ public class Chocolate implements Product {
     private double price;
     private String productName;
 
-    public Chocolate(int id, double price, String productName) {
+    public Chocolate(double price, String productName) {
         this.id = Product.SEQUENCER.getAndIncrement();
         this.price = price;
         this.productName = productName;

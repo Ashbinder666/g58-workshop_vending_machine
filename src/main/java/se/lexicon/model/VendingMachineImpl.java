@@ -66,12 +66,30 @@ public class VendingMachineImpl implements VendingMachine {
     }
 
     @Override
+    public int endSession() {
+        int temp = depositPool;
+        depositPool = 0;
+        return temp;
+    }
+
+    @Override
     public String getDescription(int id) {
-        return "";
+        //Find the product with this id in the array
+        for (Product product : products){
+            if (product.getId() == id)
+                return product.examine();
+        }
+
+        //Product was not found
+        throw new RuntimeException("Product was not found");
     }
 
     @Override
     public String[] getProducts() {
-        return new String[0];
+        String[] descriptions = new String[products.length];
+        for (int i = 0; i < products.length; i++){
+            descriptions[i] = products[i].examine();
+        }
+        return descriptions;
     }
 }

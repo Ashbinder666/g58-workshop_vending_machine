@@ -6,7 +6,7 @@ public class Soda implements Product {
     private double price;
     private String productName;
 
-    public Soda(int id, double price, String productName) {
+    public Soda(double price, String productName) {
         this.id = Product.SEQUENCER.getAndIncrement();
         this.price = price;
         this.productName = productName;
